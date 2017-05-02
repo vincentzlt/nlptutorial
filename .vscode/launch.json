@@ -73,7 +73,7 @@
                 "WaitOnNormalExit"
             ],
             "args": [
-                "${workspaceRoot}\\test\\00-input.txt"
+                "${workspaceRoot}\\test\\01-train-input.txt"
             ]
         },
         {
