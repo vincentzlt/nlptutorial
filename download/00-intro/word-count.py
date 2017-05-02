@@ -1,5 +1,7 @@
 #!/usr/bin/python
-# python word_freq.py <filename>
+# -*- coding: UTF-8 -*-
+
+# python word-count.py <filename>
 
 import sys
 from collections import defaultdict
@@ -7,7 +9,7 @@ from collections import defaultdict
 
 def word_f(f_name):
     try:
-        with open(f_name, "r") as f:
+        with open(f_name, "r",encoding="UTF-8") as f:
             lines = f.readlines()
     except FileNotFoundError:
         print("there is no such file.")
