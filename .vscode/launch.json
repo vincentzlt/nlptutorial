@@ -73,7 +73,8 @@
                 "WaitOnNormalExit"
             ],
             "args": [
-                "${workspaceRoot}\\test\\01-train-input.txt"
+                "unigram.model",
+                "${workspaceRoot}\\test\\01-test-input.txt"
             ]
         },
         {

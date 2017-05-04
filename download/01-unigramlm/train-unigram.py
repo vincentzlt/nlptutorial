@@ -72,9 +72,11 @@ def calc_coverage(input_list, model_list):
     return (input_vocab - model_vocab) / model_vocab
 
 def unigram_model(model_list):
-    for i in model_list:
-        for j in i:
-            print("{}:\t{}".format(j,calc_w_uni_P(j,model_list)))
+    vocab_type=set()
+    for i in [set(j) for j in model_list]:
+        vocab_type |=i
+    for i in vocab_type:
+            print("{}:\t{}".format(i,calc_w_uni_P(i,model_list)))
     return
 
 if __name__ == "__main__":
