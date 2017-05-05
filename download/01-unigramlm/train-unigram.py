@@ -13,7 +13,7 @@ def preprocess_corpus(f_name):
             each line is a list"""
 
     try:
-        with open(f_name, "r", encoding="UTF-8") as f:
+        with open(f_name, "r",encoding="UTF-8") as f:
             lines = f.readlines()
     except FileNotFoundError:
         print("file not found. try again")
@@ -76,7 +76,11 @@ def unigram_model(model_list):
     for i in [set(j) for j in model_list]:
         vocab_type |=i
     for i in vocab_type:
-            print("{}:\t{}".format(i,calc_w_uni_P(i,model_list)))
+        try:
+            print("{}\t{}".format(i,calc_w_uni_P(i,model_list)))
+        except UnicodeDecodeError:
+            pass
+        
     return
 
 if __name__ == "__main__":
