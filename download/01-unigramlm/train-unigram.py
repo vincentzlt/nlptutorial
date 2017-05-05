@@ -13,7 +13,7 @@ def preprocess_corpus(f_name):
             each line is a list"""
 
     try:
-        with open(f_name, "r",encoding="UTF-8") as f:
+        with open(f_name, "r", encoding="UTF-8") as f:
             lines = f.readlines()
     except FileNotFoundError:
         print("file not found. try again")
@@ -33,18 +33,19 @@ def calc_w_uni_P(w, corpus_list, *g_and_vocab_number):
     g               the lambda value to unk
     vocab_number    the vocab number to construct the mnodel"""
 
-    num_w=0
+    num_w = 0
     num_token = 0
     for i in corpus_list:
         for j in i:
-            if j==w:
-                num_w+=1
-            num_token+=1
+            if j == w:
+                num_w += 1
+            num_token += 1
     if g_and_vocab_number:
-        w_P=g_and_vocab_number[0]*num_w/float(num_token)+(1-g_and_vocab_number[0])/g_and_vocab_number[1]
+        w_P = g_and_vocab_number[
+            0] * num_w / float(num_token) + (1 - g_and_vocab_number[0]) / g_and_vocab_number[1]
     else:
-        w_P=num_w/float(num_token)    
-    
+        w_P = num_w / float(num_token)
+
     return w_P
 
 
@@ -71,21 +72,22 @@ def calc_coverage(input_list, model_list):
     input_vocab = set([set(i) for i in input_list])
     return (input_vocab - model_vocab) / model_vocab
 
+
 def unigram_model(model_list):
-    vocab_type=set()
+    vocab_type = set()
     for i in [set(j) for j in model_list]:
-        vocab_type |=i
+        vocab_type |= i
     for i in vocab_type:
         try:
-            print("{}\t{}".format(i,calc_w_uni_P(i,model_list)))
-        except UnicodeDecodeError:
+            print("{}\t{}".format(i, calc_w_uni_P(i, model_list)))
+        except UnicodeEncodeError:
             pass
-        
+            # input("press enter to continue")
     return
 
 if __name__ == "__main__":
     if sys.argv[1]:
-        model_list=preprocess_corpus(sys.argv[1])
+        model_list = preprocess_corpus(sys.argv[1])
         unigram_model(model_list)
     else:
         print("please enter a file name.")

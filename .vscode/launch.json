@@ -73,8 +73,8 @@
                 "WaitOnNormalExit"
             ],
             "args": [
-                "unigram.model",
-                "${workspaceRoot}\\test\\01-test-input.txt"
+                "wiki.unigram.model",
+                "${workspaceRoot}\\data\\wiki-en-train.word"
             ]
         },
         {

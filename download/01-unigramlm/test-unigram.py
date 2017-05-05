@@ -14,8 +14,12 @@ def read_model(f_name):
     unigram_model=dict()
     with open(f_name,"r") as f:
         lines=f.readlines()
-    for i in [j.replace(":","").split() for j in lines]:
-        unigram_model[i[0]]=float(i[1])
+    for i in [j.split() for j in lines]:
+        try:
+            unigram_model[i[0]]=float(i[1])
+        except IndexError:
+            print(i)
+            input()
     return unigram_model
 
 def calc_entropy(f_name,model):
@@ -26,7 +30,7 @@ def calc_entropy(f_name,model):
     output:
         entropy, coverage
         """
-    with open(f_name,"r") as d:
+    with open(f_name,"r",encoding="UTF-8") as d:
         lines=d.readlines()
     lines=[(i+" </s>").split() for i in lines]
 
