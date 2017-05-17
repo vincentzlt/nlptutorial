@@ -1,0 +1,14 @@
+d e f <s/> 	 1.0
+c d e <s/> 	 0.5
+b c e d 	 1.0
+c e d f 	 1.0
+b c d e 	 1.0
+e d f <s/> 	 1.0
+f g h <s/> 	 1.0
+<s> e f g 	 1.0
+c d e f 	 0.5
+<s> b c e 	 0.5
+a b c d 	 1.0
+e f g h 	 1.0
+<s> a b c 	 1.0
+<s> b c d 	 0.5

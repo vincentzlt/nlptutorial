@@ -5,8 +5,7 @@
 
 import sys, math
 from collections import defaultdict
-from IPython.core.interactiveshell import InteractiveShell
-InteractiveShell.ast_node_interactivity = "all"
+
 
 
 # In[27]:
@@ -60,7 +59,7 @@ def calc_n_gram_model(n, corpus_list):
 # In[38]:
 
 if __name__=="__main__":
-    sys.argv="self ../../data/wiki-en-train.word 2".split()
+    
     corpus_list=gen_corpus_list(sys.argv[1])
     calc_n_gram_model(int(sys.argv[2]),corpus_list)
 
