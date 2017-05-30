@@ -42,7 +42,7 @@ class w_pos():
             y_prev])
 
     def calc_HMM_emission_P(self, w, tag):
-        lambda_ = 0.91
+        lambda_ = 0.95
         vocab_size = 10000000
         P = self.w_pos_freq[w + "_" + tag] / float(self.pos_freq[1][tag])
         return lambda_ * P + (1 - lambda_) / float(vocab_size)
@@ -113,7 +113,7 @@ class w_pos():
         return " ".join(tags)
 
     def calc_POS_viterbi_f(self, f_name):
-        with open("./my-answer.pos", "w", encoding="UTF-8") as f:
+        with open("./my-answer_train.pos", "w", encoding="UTF-8") as f:
             pass
         for line in open(f_name,"r",encoding="UTF-8"):
             _=self.calc_POS_viterbi(line)+"\n"
@@ -121,12 +121,12 @@ class w_pos():
                 f.write(_)
         # In[95]:
 
-temp = w_pos(f_name="./wiki-en-train.norm_pos")
+temp = w_pos(f_name="wiki-en-train.norm_pos")
 
 
 # In[97]:
 
-temp.calc_POS_viterbi_f("..//..//data//wiki-en-test.norm")
+temp.calc_POS_viterbi_f("wiki-en-train.norm")
 
 
 # In[ ]:
