@@ -113,20 +113,19 @@ class w_pos():
         return " ".join(tags)
 
     def calc_POS_viterbi_f(self, f_name):
-        with open("./my-answer_train.pos", "w", encoding="UTF-8") as f:
+        with open("./temp.pos", "w", encoding="UTF-8") as f:
             pass
         for line in open(f_name,"r",encoding="UTF-8"):
             _=self.calc_POS_viterbi(line)+"\n"
-            with open("./my-answer.pos","a",encoding="UTF-8") as f:
+            with open("./temp.pos","a",encoding="UTF-8") as f:
                 f.write(_)
         # In[95]:
 
-temp = w_pos(f_name="wiki-en-train.norm_pos")
+temp = w_pos("./wiki-en-train.norm_pos")
 
+input()
 
-# In[97]:
+temp.calc_POS_viterbi_f("./wiki-en-test.norm")
 
-temp.calc_POS_viterbi_f("wiki-en-train.norm")
-
-
+input()
 # In[ ]:
