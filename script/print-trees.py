@@ -1,5 +1,3 @@
-#!/usr/bin/python
-
 from nltk.tree import Tree
 import sys
 
@@ -8,5 +6,5 @@ import sys
 #  To install NLTK on ubuntu: sudo apt-get install python-nltk
 
 for line in sys.stdin:
-    t = Tree.parse(line)
+    t = Tree.fromstring(line)
     t.draw()
